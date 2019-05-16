@@ -1,0 +1,47 @@
+.FormInput {
+  color: black;
+  font-size: 1rem;
+  font-family: inherit;
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  width: 300px;
+  transition: all 1s; }
+
+.FormInput:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #55c57a; }
+.FormInput:focus:invalid {
+    border-bottom: 3px solid #ff7730; }
+.FormInput::-webkit-input-placeholder {
+    color: #999; }
+
+
+.FormButton, .FormButton:link, .FormButton:visited {
+  color: white;
+  background-color: #e67e22;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: .5rem 1rem;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  transition: all .5s;
+  border: none;
+  cursor: pointer; }
+
+.FormButton:hover {
+    background-color: #cf6d17;
+  }
+
+.FormButton:active, .FormButton:focus {
+  outline: none;
+}
+
+.FormButton::after {
+  background-color: #e67e22;
+}
