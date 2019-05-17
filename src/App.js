@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/cv" component={CvPage} />
+        <Route path="/cv:login" component={CvPage} />
         <Route path="/" exact component={LandingPage} />
         <Route render={() => <h1>Not found ...</h1>} />
       </Switch>
