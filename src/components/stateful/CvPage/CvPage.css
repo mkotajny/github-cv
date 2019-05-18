@@ -58,10 +58,12 @@ html, body {
 	font-size: 0.9em;
 	margin-top: 2px;
 	margin-bottom: 3px;
+}
+
+.contactDetails a {
 	color: #444;
 	text-decoration: none;
 }
-
 .contactDetails a:hover { 
 	color: #cf8a05;
 }
