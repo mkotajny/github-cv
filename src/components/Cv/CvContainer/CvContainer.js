@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import classes from './CvPage.css';
+import classes from './CvContainer.css';
 import axios from 'axios';
 
-class CvPage extends Component {
+class CvContainer extends Component {
   constructor() {
     super();
     this.state = {
@@ -66,4 +66,4 @@ class CvPage extends Component {
   }
 }
 
-export default CvPage;
+export default CvContainer;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './LandingPage.css';
 import Jumbotron from '../Jumbotron/Jumbotron';
-import GithubAccountForm from '../../stateful/GithubAccountForm/GithubAccountForm';
+import GithubAccountForm from '../GithubAccountForm/GithubAccountForm';
 
 
 class LandingPage extends Component {
