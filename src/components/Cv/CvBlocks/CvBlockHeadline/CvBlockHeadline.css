@@ -1,0 +1,54 @@
+.clear {clear: both;}
+
+.mainDetails {
+  width: 90%;
+	max-width: 800px;
+	margin: 2rem auto;
+  padding: 1.5rem 2rem;
+	border-bottom: 2px solid #cf8a05;
+  background: #ededed; 
+
+}
+
+.headShot {
+	width: 12.5%;
+	float: left;
+	margin-right: 2rem;
+}
+
+.headShot img {
+	width: 100%;
+	height: auto;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+.name {
+  float: left;
+}
+
+.name h1 {
+	font-size: 2em;
+	font-weight: 600;
+}
+
+.name h2 {
+  font-size: 1.5em;
+  font-weight: 400;
+	margin-left: 2px;
+}
+
+.contactDetails {
+	float: right;
+	font-size: 0.9em;
+	margin-top: 2px;
+	margin-bottom: 3px;
+}
+
+.contactDetails a {
+	color: #444;
+	text-decoration: none;
+}
+.contactDetails a:hover { 
+	color: #cf8a05;
+}
