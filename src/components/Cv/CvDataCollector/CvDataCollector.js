@@ -38,7 +38,7 @@ class CvDataCollector extends Component {
         <ApiDataCollector OnApiResponse={this.handleApiData} 
           dataCategory="userData" url={url}/>
         <ApiDataCollector OnApiResponse={this.handleApiData} 
-          dataCategory="repositoriesData" url={url + "/repos"}/>
+          dataCategory="repositoriesData" url={url + "/repos?per_page=100"}/>
       </React.Fragment>
       )
     } else {

@@ -9,3 +9,7 @@ html, body {
 	max-width: 800px;
   background: #f3f3f3;  
 }
+
+.mainArea {
+	padding: 0 1.5rem;
+}

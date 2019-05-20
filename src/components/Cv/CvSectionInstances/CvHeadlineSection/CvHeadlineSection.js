@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from './CvHeadlineBlock.css';
+import classes from './CvHeadlineSection.css';
 
-const CvHeadlineBlock = (props) => {
+const CvHeadlineSection = (props) => {
   return (
     <div className={classes.mainDetails}> 
       <div className={classes.headShot}>
@@ -19,4 +19,4 @@ const CvHeadlineBlock = (props) => {
   );
 }
 
-export default CvHeadlineBlock;
+export default CvHeadlineSection;

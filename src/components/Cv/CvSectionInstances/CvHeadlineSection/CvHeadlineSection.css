@@ -1,5 +1,3 @@
-.clear {clear: both;}
-
 .mainDetails {
   padding: 1.5rem 2rem;
 	border-bottom: 2px solid #cf8a05;
@@ -48,3 +46,5 @@
 .contactDetails a:hover { 
 	color: #cf8a05;
 }
+
+.clear {clear: both;}

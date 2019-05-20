@@ -24,7 +24,7 @@ class GithubAccountForm extends Component {
   redirect()
   {
     let redirect  = null;
-    let redirectLink = "/cv" + this.state.githubAccountName;
+    let redirectLink = "/cv/" + this.state.githubAccountName;
     if (this.state.submitted) {
       redirect = <Redirect to={redirectLink}/>;
     }
