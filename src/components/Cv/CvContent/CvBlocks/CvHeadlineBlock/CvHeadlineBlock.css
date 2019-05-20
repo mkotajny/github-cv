@@ -1,13 +1,9 @@
 .clear {clear: both;}
 
 .mainDetails {
-  width: 90%;
-	max-width: 800px;
-	margin: 2rem auto;
   padding: 1.5rem 2rem;
 	border-bottom: 2px solid #cf8a05;
-  background: #ededed; 
-
+	background: #ededed;
 }
 
 .headShot {

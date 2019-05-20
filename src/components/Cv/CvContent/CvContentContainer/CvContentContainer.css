@@ -1,0 +1,11 @@
+html, body {
+  background: #181818; 
+  color: #222;
+}
+
+.CvContainer {
+	margin: 2rem auto;
+  width: 90%;
+	max-width: 800px;
+  background: #f3f3f3;  
+}
