@@ -3,4 +3,13 @@
 	width: 72.5%;
 }
 
+.sectionContent p a {
+	text-decoration: none;
+	color: #cf8a05;
+}
+
+.sectionContent p a:hover { 
+	color: #926201;
+}
+
 .clear {clear: both;}

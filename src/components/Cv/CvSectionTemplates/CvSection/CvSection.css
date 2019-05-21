@@ -8,10 +8,6 @@
 	border-top: 0;
 }
 
-.section:last-child {
-	padding: 1.5rem 0 0rem;
-}
-
 .sectionTitle {
 	float: left;
 	width: 25%;

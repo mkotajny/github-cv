@@ -41,7 +41,10 @@ class CvContainer extends Component {
             <CvSectionContent title="Overview">
               Chris Wanstrath is a developer with <strong>{this.state.data.user.public_repos}</strong> public repositories and <strong>{this.state.data.user.followers}</strong> followers.
             </CvSectionContent>
-            <CvLanguagesSection repositories={this.state.data.repositories}/>}
+            <CvLanguagesSection repositories={this.state.data.repositories}/>
+            <CvSectionContent title="About this resume">
+              This résumé is generated automatically using public information from the developer's GitHub account. Do not hesitate to visit <a href={"https://github.com/"+this.state.data.user.login}>{this.state.data.user.name}'s GitHub page</a> for a complete work history.
+            </CvSectionContent>
           </div>
         </div>
       )

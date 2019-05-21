@@ -40,11 +40,11 @@
 }
 
 .contactDetails a {
-	color: #444;
+	color: #cf8a05;
 	text-decoration: none;
 }
 .contactDetails a:hover { 
-	color: #cf8a05;
+	color: #926201;
 }
 
 .clear {clear: both;}
