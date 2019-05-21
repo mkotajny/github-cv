@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import classes from './CvContainer.css';
-import CvDataCollector, {} from '../CvDataCollector/CvDataCollector';
+import Modal from '../../Layout/Modal/Modal';
+import Spinner from '../../Layout/Spinner/Spinner';
+import CvDataCollector from '../CvDataCollector/CvDataCollector';
 import CvHeadlineSection from '../CvSectionInstances/CvHeadlineSection/CvHeadlineSection';
 import CvLanguagesSection from '../CvSectionInstances/CvLanguagesSection/CvLanguagesSection';
 import CvSectionContent from '../CvSectionTemplates/CvSectionContent/CvSectionContent';
@@ -26,8 +28,15 @@ class CvContainer extends Component {
   render() {
     if (!this.state.data) {
       return (
-        <CvDataCollector OnResponse={this.handleCvData} 
-          login={this.props.match.params.login}/>)
+        <React.Fragment>
+          <Modal>
+              <Spinner>
+                  Generating CV ...
+              </Spinner>
+          </Modal>
+          <CvDataCollector OnResponse={this.handleCvData} 
+            login={this.props.match.params.login}/>}
+        </React.Fragment>)
     } else {
       return (
         <React.Fragment>
@@ -41,7 +50,7 @@ class CvContainer extends Component {
             
             <div className={classes.mainArea}>
               <CvSectionContent title="Overview">
-                Chris Wanstrath is a developer with <strong>{this.state.data.user.public_repos}</strong> public repositories and <strong>{this.state.data.user.followers}</strong> followers.
+                {this.state.data.user.name} ({this.state.data.user.login}) is a developer with <strong>{this.state.data.user.public_repos}</strong> public repositories and <strong>{this.state.data.user.followers}</strong> followers.
               </CvSectionContent>
 
               <CvLanguagesSection repositories={this.state.data.repositories}/>
