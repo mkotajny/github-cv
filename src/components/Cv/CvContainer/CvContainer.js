@@ -39,7 +39,7 @@ class CvContainer extends Component {
           
           <div className={classes.mainArea}>
             <CvReposQtySection reposQty={this.state.data.user.public_repos}
-              followersQty={this.state.data.user.followers}/>
+              followersQty={this.state.data.user.followers}/>              
             <CvLanguagesSection repositories={this.state.data.repositories}/>}
           </div>
         </div>

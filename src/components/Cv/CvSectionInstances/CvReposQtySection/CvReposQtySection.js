@@ -1,11 +1,11 @@
 import React from 'react';
-import CvSectionContentStandard from '../../CvSectionTemplates/CvSectionContentStandard/CvSectionContentStandard';
+import CvSectionContent from '../../CvSectionTemplates/CvSectionContent/CvSectionContent';
 
 const CvReposQtySection = props => {
   return (
-    <CvSectionContentStandard title="Overview">
+    <CvSectionContent title="Overview">
       Chris Wanstrath is a developer with <strong>{props.reposQty}</strong> public repositories and <strong>{props.followersQty}</strong> followers.
-    </CvSectionContentStandard>
+    </CvSectionContent>
   );
 };
 

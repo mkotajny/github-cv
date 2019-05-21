@@ -1,5 +1,5 @@
 import React from 'react';
-import CvSectionContentStandard from '../../CvSectionTemplates/CvSectionContentStandard/CvSectionContentStandard';
+import CvSectionContent from '../../CvSectionTemplates/CvSectionContent/CvSectionContent';
 import CvContentLi from '../../CvSectionTemplates/CvContentLi/CvContentLi';
 
 const CvLanguagesSection = (props) => {
@@ -16,9 +16,9 @@ const CvLanguagesSection = (props) => {
   }
 
   return (
-    <CvSectionContentStandard title="Programming Languages">
+    <CvSectionContent title="Programming Languages">
       <CvContentLi items={getLanguages()} />
-    </CvSectionContentStandard>
+    </CvSectionContent>
   );
 };
 
