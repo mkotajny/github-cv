@@ -5,6 +5,7 @@ import CvHeadlineSection from '../CvSectionInstances/CvHeadlineSection/CvHeadlin
 import CvReposQtySection from '../CvSectionInstances/CvReposQtySection/CvReposQtySection';
 import CvLanguagesSection from '../CvSectionInstances/CvLanguagesSection/CvLanguagesSection';
 
+
 class CvContainer extends Component {
 
   constructor() {
@@ -39,7 +40,7 @@ class CvContainer extends Component {
           <div className={classes.mainArea}>
             <CvReposQtySection reposQty={this.state.data.user.public_repos}
               followersQty={this.state.data.user.followers}/>
-            <CvLanguagesSection repositories={this.state.data.repositories}/>
+            <CvLanguagesSection repositories={this.state.data.repositories}/>}
           </div>
         </div>
       )

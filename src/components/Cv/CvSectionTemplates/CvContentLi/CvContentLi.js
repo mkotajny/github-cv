@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from './CvSectionContentLi.css';
+import classes from './CvContentLi.css';
 
-const CvSectionContentLi = (props) => {
+const CvContentLi = (props) => {
   const items = props.items.map((item) =>
   <li>{item}</li>);
 
@@ -12,4 +12,4 @@ const CvSectionContentLi = (props) => {
   );
 };
 
-export default CvSectionContentLi;
+export default CvContentLi;
