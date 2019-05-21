@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import classes from './CvContainer.css';
 import CvDataCollector, {} from '../CvDataCollector/CvDataCollector';
 import CvHeadlineSection from '../CvSectionInstances/CvHeadlineSection/CvHeadlineSection';
-import CvReposQtySection from '../CvSectionInstances/CvReposQtySection/CvReposQtySection';
 import CvLanguagesSection from '../CvSectionInstances/CvLanguagesSection/CvLanguagesSection';
+import CvSectionContent from '../CvSectionTemplates/CvSectionContent/CvSectionContent';
 
 
 class CvContainer extends Component {
@@ -38,8 +38,9 @@ class CvContainer extends Component {
             webPageUrl={this.state.data.user.blog}/>
           
           <div className={classes.mainArea}>
-            <CvReposQtySection reposQty={this.state.data.user.public_repos}
-              followersQty={this.state.data.user.followers}/>              
+            <CvSectionContent title="Overview">
+              Chris Wanstrath is a developer with <strong>{this.state.data.user.public_repos}</strong> public repositories and <strong>{this.state.data.user.followers}</strong> followers.
+            </CvSectionContent>
             <CvLanguagesSection repositories={this.state.data.repositories}/>}
           </div>
         </div>
