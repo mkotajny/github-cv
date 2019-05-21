@@ -4,7 +4,7 @@ html, body {
 }
 
 .CvContainer {
-	margin: 2rem auto;
+	margin: 3rem auto;
   width: 90%;
 	max-width: 800px;
   background: #f3f3f3;  
@@ -12,4 +12,13 @@ html, body {
 
 .mainArea {
 	padding: 0 1.5rem;
+}
+
+.home {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  color: #f3f3f3;
+  font-size: 2em;
+  cursor: pointer; 
 }
