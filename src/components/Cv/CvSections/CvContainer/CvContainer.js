@@ -3,6 +3,7 @@ import classes from './CvContainer.css';
 import CvSectionContent from '../CvSectionTemplates/CvSectionContent/CvSectionContent';
 import CvHeadlineSection from '../CvSectionInstances/CvHeadlineSection/CvHeadlineSection';
 import CvLanguagesSection from '../CvSectionInstances/CvLanguagesSection/CvLanguagesSection';
+import PropTypes from 'prop-types';
 
 const CvContainer = (props) => {
   return (
@@ -23,7 +24,9 @@ const CvContainer = (props) => {
         </CvSectionContent>
       </div>
     </div>
-);
+  );
 };
+
+CvContainer.propTypes = { data: PropTypes.object.isRequired };
 
 export default CvContainer;

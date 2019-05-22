@@ -1,6 +1,7 @@
 import React from 'react';
 import CvSectionContent from '../../CvSectionTemplates/CvSectionContent/CvSectionContent';
 import CvContentLi from '../../CvSectionTemplates/CvContentLi/CvContentLi';
+import PropTypes from 'prop-types';
 
 const CvLanguagesSection = (props) => {
   
@@ -20,6 +21,10 @@ const CvLanguagesSection = (props) => {
       <CvContentLi items={getLanguages()} />
     </CvSectionContent>
   );
+};
+
+CvLanguagesSection.propTypes = {
+  repositories: PropTypes.array.isRequired
 };
 
 export default CvLanguagesSection;

@@ -3,7 +3,6 @@ import classes from './LandingPage.css';
 import Jumbotron from '../Jumbotron/Jumbotron';
 import GithubAccountForm from '../GithubAccountForm/GithubAccountForm';
 
-
 class LandingPage extends Component {
   render() {
     return (

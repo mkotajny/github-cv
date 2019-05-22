@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './CvSection.css';
+import PropTypes from 'prop-types';
 
 const CvSection = (props) => {
   return (
@@ -11,5 +12,7 @@ const CvSection = (props) => {
     </div>
   );
 };
+
+CvSection.propTypes = { title: PropTypes.string.isRequired };
 
 export default CvSection;

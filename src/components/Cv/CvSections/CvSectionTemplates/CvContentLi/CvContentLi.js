@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './CvContentLi.css';
+import PropTypes from 'prop-types';
 
 const CvContentLi = (props) => {
   const items = props.items.map((item) =>
@@ -10,6 +11,10 @@ const CvContentLi = (props) => {
       {items}
     </ul>
   );
+};
+
+CvContentLi.propTypes = {
+  items: PropTypes.array.isRequired
 };
 
 export default CvContentLi;

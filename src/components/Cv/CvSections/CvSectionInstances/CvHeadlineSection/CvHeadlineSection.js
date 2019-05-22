@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './CvHeadlineSection.css';
+import PropTypes from 'prop-types';
 
 const CvHeadlineSection = (props) => {
   return (
@@ -18,5 +19,11 @@ const CvHeadlineSection = (props) => {
     </div>
   );
 }
+
+CvHeadlineSection.propTypes = {
+  avatarUrl: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  webPageUrl: PropTypes.string.isRequired
+};
 
 export default CvHeadlineSection;

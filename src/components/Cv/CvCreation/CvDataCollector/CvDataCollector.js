@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ApiDataCollector from '../../../Utility/ApiDataCollector/ApiDataCollector';
 import githubApiUrl from '../../../../config/githubApiUrl';
+import PropTypes from 'prop-types';
 
 class CvDataCollector extends Component {
   constructor() {
@@ -37,7 +38,7 @@ class CvDataCollector extends Component {
 
   handleApiData = (response) => {
     if (response.error) {
-      this.props.OnResponse(this.userFriendlyErrorResponse(response.error.response));
+      this.props.onResponse(this.userFriendlyErrorResponse(response.error.response));
     } else {
       this.setState({[response.dataCategory]: response.data});
     }
@@ -46,9 +47,9 @@ class CvDataCollector extends Component {
   jsxContent = (url) => {
     return (
       <React.Fragment>
-        <ApiDataCollector OnApiResponse={this.handleApiData}
+        <ApiDataCollector onApiResponse={this.handleApiData}
           dataCategory="userData" url={url}/>
-        <ApiDataCollector OnApiResponse={this.handleApiData}
+        <ApiDataCollector onApiResponse={this.handleApiData}
           dataCategory="repositoriesData" url={url + "/repos?per_page=100"}/>
       </React.Fragment>
     )
@@ -60,7 +61,7 @@ class CvDataCollector extends Component {
     if (!this.state.endOfLoading) {
       return this.jsxContent(url)
     } else {
-      this.props.OnResponse({
+      this.props.onResponse({
         data:{
           user: this.state.userData,
           repositories: this.state.repositoriesData}});
@@ -68,5 +69,11 @@ class CvDataCollector extends Component {
     return null;
   }
 }
+
+CvDataCollector.propTypes = {
+  onResponse: PropTypes.func.isRequired,
+  login: PropTypes.string.isRequired
+};
+
 
 export default CvDataCollector;

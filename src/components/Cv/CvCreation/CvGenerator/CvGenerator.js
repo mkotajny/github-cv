@@ -5,6 +5,7 @@ import CvContainer from '../../CvSections/CvContainer/CvContainer';
 import CvErrorMessage from '../CvErrorMessage/CvErrorMessage';
 import CvSpinner from '../CvSpinner/CvSpinner';
 import {IoMdHome} from "react-icons/io";
+import PropTypes from 'prop-types';
 
 class CvGenerator extends Component {
 
@@ -34,7 +35,7 @@ class CvGenerator extends Component {
         return (
           <React.Fragment>
             <CvSpinner />
-            <CvDataCollector OnResponse={this.handleCvData} 
+            <CvDataCollector onResponse={this.handleCvData} 
               login={this.props.match.params.login}/>}
           </React.Fragment>)
       default:
@@ -52,5 +53,10 @@ class CvGenerator extends Component {
     );
   }
 }
+
+CvGenerator.propTypes = {
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
+};
 
 export default CvGenerator;
