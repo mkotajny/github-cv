@@ -42,7 +42,7 @@ class GithubAccountForm extends Component {
           onChange={e => this.updateInput("githubAccountName", e.target.value)}
           id="name" required />
         <button className={classes.FormButton} 
-          onClick={() => this.submitForm(this.state.githubAccountName)}>Go</button>
+          onClick={() => this.submitForm(this.state.githubAccountName)}>Generate CV..</button>
       </React.Fragment>
     );
   }
