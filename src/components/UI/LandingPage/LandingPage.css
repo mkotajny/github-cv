@@ -8,4 +8,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+}
+
+
+@media all and (max-width: 601px) {
+  .WelcomeContainer {
+    padding: 0 2rem 0 2rem;
+  }
 }

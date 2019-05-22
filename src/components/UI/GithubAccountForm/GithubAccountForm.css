@@ -36,3 +36,9 @@
     background-color: #cf6d17;}
 .FormButton:active, .FormButton:focus {
   outline: none;}
+
+@media all and (max-width: 401px) {
+  .FormInput {
+    width: 10rem;
+  }
+}
