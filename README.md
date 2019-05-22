@@ -36,6 +36,11 @@ template. 
 - proptypes in almost all components
 
 
+## log history in the repository
+All commits in the repository refers to github issues (tasks or user stories):
+https://bitbucket.org/mkotajny/github-cv/issues
+
+
 ## I've run `npm run eject` in the project
 The consequence is bunch of dependencies listed in the package.json file.
 I've decided to run "eject" mostly for setup [CSS-modules](https://medium.com/@dannyhuang_75970/how-to-setup-css-modules-in-create-react-app-a03b65e14746) in the application.
