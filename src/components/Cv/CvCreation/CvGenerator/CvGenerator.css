@@ -8,18 +8,6 @@ body {
   background-attachment: fixed;
 }
 
-.CvContainer {
-  margin: 10vh auto;
-  width: 90%;
-	max-width: 800px;
-  background-color: #f3f3f3;  
-  border: 1px solid #333;
-  box-shadow: 2px 2px 2px #cf8a05;
-}
-
-.mainArea {
-	padding: 0 1.5rem;
-}
 
 .home {
   position: fixed;

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import classes from './CvGenerator.css';
-import Modal from '../../../Layout/Modal/Modal';
-import Spinner from '../../../Layout/Spinner/Spinner';
 import CvDataCollector from '../CvDataCollector/CvDataCollector';
-import CvHeadlineSection from '../../CvSections/CvSectionInstances/CvHeadlineSection/CvHeadlineSection';
-import CvLanguagesSection from '../../CvSections/CvSectionInstances/CvLanguagesSection/CvLanguagesSection';
-import CvSectionContent from '../../CvSections/CvSectionTemplates/CvSectionContent/CvSectionContent';
+import CvSectionsContainer from '../../CvSections/CvSectionsContainer/CvSectionsContainer';
+import CvErrorMessage from '../CvErrorMessage/CvErrorMessage';
+import CvSpinner from '../CvSpinner/CvSpinner';
 import {IoMdHome} from "react-icons/io";
 
 class CvGenerator extends Component {
@@ -15,7 +13,9 @@ class CvGenerator extends Component {
     this.state = {
       data: null,
       error: null }
-    }
+    this.jsxContent = this.jsxContent.bind(this);
+    };
+    
 
   handleCvData = (response) => {
     if (response.error) {
@@ -24,54 +24,32 @@ class CvGenerator extends Component {
       this.setState({data: response.data});
     }
   }
+  
+  jsxContent = () => {
+    switch (true)
+    {
+      case this.state.error:
+        return <CvErrorMessage errorMessage={this.state.error.message} />
+      case !this.state.data:
+        return (
+          <React.Fragment>
+            <CvSpinner />
+            <CvDataCollector OnResponse={this.handleCvData} 
+              login={this.props.match.params.login}/>}
+          </React.Fragment>)
+      default:
+        return <CvSectionsContainer data={this.state.data} />  
+    }    
+  }
 
   render() {
-    if (this.state.error) {
-      return (
-          <Modal>
-            <strong>Error:</strong><br/><br/>
-            {this.state.error.message}
-            <IoMdHome className={classes.home} 
-            onClick={() => this.props.history.push('/')}/>
-          </Modal>
-          )
-    }
-    if (!this.state.data) {
-      return (
-        <React.Fragment>
-          <Modal>
-              <Spinner>
-                  CV creation in progress ...
-              </Spinner>
-          </Modal>
-          <CvDataCollector OnResponse={this.handleCvData} 
-            login={this.props.match.params.login}/>}
-        </React.Fragment>)
-    } else {
-      return (
-        <React.Fragment>
-          <IoMdHome className={classes.home} 
-            onClick={() => this.props.history.push('/')}/>
-          
-          <div className={classes.CvContainer}>            
-            <CvHeadlineSection name={this.state.data.user.name}
-              avatarUrl={this.state.data.user.avatar_url}
-              webPageUrl={this.state.data.user.blog}/>
-            
-            <div className={classes.mainArea}>
-              <CvSectionContent title="Overview">
-                {this.state.data.user.name} ({this.state.data.user.login}) is a developer with <strong>{this.state.data.user.public_repos}</strong> public repositories and <strong>{this.state.data.user.followers}</strong> followers.
-              </CvSectionContent>
-
-              <CvLanguagesSection repositories={this.state.data.repositories}/>
-
-              <CvSectionContent title="About this resume">
-                This résumé is generated automatically using public information from the developer's GitHub account. Do not hesitate to visit <a href={"https://github.com/"+this.state.data.user.login}>{this.state.data.user.name} ({this.state.data.user.login}) GitHub page</a> for a complete work history.
-              </CvSectionContent>
-            </div>
-          </div>
-        </React.Fragment>)
-    }
+    return (
+      <React.Fragment>
+        <IoMdHome className={classes.home} 
+          onClick={() => this.props.history.push('/')}/>
+        {this.jsxContent()}
+      </React.Fragment>
+    );
   }
 }
 
