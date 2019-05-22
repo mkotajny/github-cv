@@ -8,18 +8,17 @@ class CvDataCollector extends Component {
     this.state = {
       userData: null,
       repositoriesData: null,          
-      endOfLoading: false,
       error: false,
     }
     this.jsxContent = this.jsxContent.bind(this);
   }
 
-  checkEndOfLoading() {
+  endOfLoading() {
     if (this.state.userData
-        && this.state.repositoriesData
-        && !this.state.endOfLoading) {
-      this.setState({endOfLoading: true})
+        && this.state.repositoriesData) {
+      return true;
     }
+    return false;
   }
 
   userFriendlyErrorResponse(errorResponse) {
@@ -52,8 +51,7 @@ class CvDataCollector extends Component {
   }
   
   render() {
-    this.checkEndOfLoading();
-    if (!this.state.endOfLoading) {
+    if (!this.endOfLoading()) {
       return this.jsxContent()
     } else {
       this.props.onResponse({

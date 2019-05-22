@@ -9,7 +9,7 @@ const CvHeadlineSection = (props) => {
         <img src={props.avatarUrl} alt={props.name} />
       </div>
       <div className={classes.name}>
-        <h1>{props.name}</h1>
+        <h1>{props.displayName}</h1>
         <h2>Github Profile</h2>
       </div>
       <div className={classes.contactDetails}>
@@ -22,7 +22,7 @@ const CvHeadlineSection = (props) => {
 
 CvHeadlineSection.propTypes = {
   avatarUrl: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  displayName: PropTypes.string.isRequired,
   webPageUrl: PropTypes.string.isRequired
 };
 
