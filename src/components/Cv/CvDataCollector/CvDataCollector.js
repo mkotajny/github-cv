@@ -21,9 +21,24 @@ class CvDataCollector extends Component {
     }
   }
 
+  userFriendlyErrorResponse(errorResponse) {
+    console.log(errorResponse);
+    switch (errorResponse.status) {
+      case 404:
+        return {
+          error: {
+            code: errorResponse.status,
+            message: "The user you requested was not found. Please check your spelling and try again." 
+            }
+        }
+      default: return { error: { message: "Something went wrong during CV generation. Please try again." } };
+    }
+    
+  }
+
   handleApiData = (response) => {
     if (response.error) {
-      this.props.OnResponse({error: true});
+      this.props.OnResponse(this.userFriendlyErrorResponse(response.error.response));
     } else {
       this.setState({[response.dataCategory]: response.data});
     }

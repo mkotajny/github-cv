@@ -14,24 +14,34 @@ class CvContainer extends Component {
     super();
     this.state = {
       data: null,
-      error: false }
+      error: null }
     }
 
   handleCvData = (response) => {
     if (response.error) {
-      this.setState({error: true});
+      this.setState({error: response.error});
     } else {
       this.setState({data: response.data});
     }
   }
 
   render() {
+    if (this.state.error) {
+      return (
+          <Modal>
+            <strong>Error:</strong><br/><br/>
+            {this.state.error.message}
+            <IoMdHome className={classes.home} 
+            onClick={() => this.props.history.push('/')}/>
+          </Modal>
+          )
+    }
     if (!this.state.data) {
       return (
         <React.Fragment>
           <Modal>
               <Spinner>
-                  Generating CV ...
+                  CV creation in progress ...
               </Spinner>
           </Modal>
           <CvDataCollector OnResponse={this.handleCvData} 
@@ -56,7 +66,7 @@ class CvContainer extends Component {
               <CvLanguagesSection repositories={this.state.data.repositories}/>
 
               <CvSectionContent title="About this resume">
-                This résumé is generated automatically using public information from the developer's GitHub account. Do not hesitate to visit <a href={"https://github.com/"+this.state.data.user.login}>{this.state.data.user.name}'s GitHub page</a> for a complete work history.
+                This résumé is generated automatically using public information from the developer's GitHub account. Do not hesitate to visit <a href={"https://github.com/"+this.state.data.user.login}>{this.state.data.user.name} ({this.state.data.user.login}) GitHub page</a> for a complete work history.
               </CvSectionContent>
             </div>
           </div>

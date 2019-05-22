@@ -8,7 +8,7 @@ class LandingPage extends Component {
   render() {
     return (
       <div className={classes.WelcomeContainer}>
-        <Jumbotron>Create your Github-CV</Jumbotron>
+        <Jumbotron>Generate Github-CV</Jumbotron>
         <GithubAccountForm/>
       </div>
     );
