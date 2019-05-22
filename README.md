@@ -3,8 +3,8 @@ Project "Github-CV" is a React application developed by Marek Kotajny as resolut
 ## Running application on the web
 "Github-cv" is deployed on web server - works on [http://github-cv.surge.sh](http://github-cv.surge.sh) .
 
+
 ## JS challenge specification
-"
 - Please implement a Javascript one-page-application that lets users build a github
 resumé similiar to http://resume.github.io/
 - Create a landing page where the user can enter his or her github account
@@ -17,7 +17,7 @@ add more statistics or to aggregate more data if you wish to.  
 - Implement a model that connects the data to the given HTML / Javascript
 template. 
 - Make sure to use the github API, please don't start parsing web pages manually
-"
+
 
 ## Key features of the application
 
@@ -35,27 +35,25 @@ template. 
 - react-router (configured in App.js) 
 - proptypes in almost all components
 
+
 ## I've run `npm run eject` in the project
 The consequence is bunch of dependencies listed in the package.json file.
-I've decided to run "eject" mostly for setup [https://medium.com/@dannyhuang_75970/how-to-setup-css-modules-in-create-react-app-a03b65e14746](CSS-modules) in the application.
+I've decided to run "eject" mostly for setup [CSS-modules](https://medium.com/@dannyhuang_75970/how-to-setup-css-modules-in-create-react-app-a03b65e14746) in the application.
+
 
 ## no Redux
 - Imho state management in this application is quite simple, so I've decided to use standard react state instead of Redux (and Redux-thunk or Redux-saga for asynchronous operations like communication with Github API). Anyway, if I should implement Redux solutions, then please let me know then I will (refactor) enhance the application :)
 
-## way of communication with github API
 
+## way of communication with github API
 This chapter describes  "... a model that connects the data to the given HTML / Javascript
 template .." (mentioned in the JS challenge). 
 
 ### first solution
-
 First I've implemented HoC solution described in this article - "How to fetch data in Higher-Order Components": https://www.robinwieruch.de/react-fetching-data/
-(revision: https://bitbucket.org/mkotajny/github-cv/commits/b35f2e2579d56454698bf7ed6a5860587e605707 )
-
 Than I've changed my mind :) and refactored code for other, current solution (described below)
 
 ### second (current) solution
-
 The logic of gathering data from github and creation of cv is chained in Components:
 
 #### ApiDataCollector
