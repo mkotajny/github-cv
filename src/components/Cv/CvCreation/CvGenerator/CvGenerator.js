@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import classes from './CvContainer.css';
-import Modal from '../../Layout/Modal/Modal';
-import Spinner from '../../Layout/Spinner/Spinner';
+import classes from './CvGenerator.css';
+import Modal from '../../../UI/Modal/Modal';
+import Spinner from '../../../UI/Spinner/Spinner';
 import CvDataCollector from '../CvDataCollector/CvDataCollector';
-import CvHeadlineSection from '../CvSectionInstances/CvHeadlineSection/CvHeadlineSection';
-import CvLanguagesSection from '../CvSectionInstances/CvLanguagesSection/CvLanguagesSection';
-import CvSectionContent from '../CvSectionTemplates/CvSectionContent/CvSectionContent';
+import CvHeadlineSection from '../../CvSections/CvSectionInstances/CvHeadlineSection/CvHeadlineSection';
+import CvLanguagesSection from '../../CvSections/CvSectionInstances/CvLanguagesSection/CvLanguagesSection';
+import CvSectionContent from '../../CvSections/CvSectionTemplates/CvSectionContent/CvSectionContent';
 import {IoMdHome} from "react-icons/io";
 
-class CvContainer extends Component {
+class CvGenerator extends Component {
 
   constructor() {
     super();
@@ -75,4 +75,4 @@ class CvContainer extends Component {
   }
 }
 
-export default CvContainer;
+export default CvGenerator;

@@ -1,7 +1,7 @@
 body {
   color: #222;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.85))
-  , url('../../../assets/LandingPageBackGround.jpg');
+  , url('../../../../assets/LandingPageBackGround.jpg');
   background-size: cover;
   background-position: center;
   height: 90vh;
