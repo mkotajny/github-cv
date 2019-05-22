@@ -6,7 +6,7 @@ const CvSectionContent = (props) => {
   return (
     <CvSection title={props.title}>
       <div className={classes.sectionContent}>
-        <p>{props.children}</p>
+        {props.children}
       </div>
       <div className={classes.clear}></div>
     </CvSection>

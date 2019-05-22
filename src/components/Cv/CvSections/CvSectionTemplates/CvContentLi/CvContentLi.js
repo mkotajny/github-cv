@@ -3,7 +3,7 @@ import classes from './CvContentLi.css';
 
 const CvContentLi = (props) => {
   const items = props.items.map((item) =>
-  <li>{item}</li>);
+  <li key={item}>{item}</li>);
 
   return (
     <ul className={classes.items}>
