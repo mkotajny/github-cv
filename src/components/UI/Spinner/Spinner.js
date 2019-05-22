@@ -1,14 +1,15 @@
 import React from 'react';
 import classes from './Spinner.css';
+import Modal from '../Modal/Modal';
 
 const Spinner = (props) => {
   return (
-    <React.Fragment>
+    <Modal>
       <div className={classes.loader}/>
       <div className={classes.loaderMessage}>
         {props.children}
       </div>
-    </React.Fragment>
+    </Modal>
   );
 };
 

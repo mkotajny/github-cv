@@ -18,4 +18,12 @@
 	font-style: italic;
 	font-size: 1.1em;
 	color: #cf8a05;
+	margin-bottom: 1rem;
+}
+
+@media all and (max-width: 601px) {
+	.sectionTitle {
+		float: none;
+		width: 100%;
+	}
 }

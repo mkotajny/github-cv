@@ -13,8 +13,8 @@
 .headShot img {
 	width: 100%;
 	height: auto;
-	-webkit-border-radius: 50px;
-	border-radius: 50px;
+	-webkit-border-radius: 10rem;
+	border-radius: 10rem;
 }
 
 .name {
@@ -35,8 +35,7 @@
 .contactDetails {
 	float: right;
 	font-size: 0.9em;
-	margin-top: 2px;
-	margin-bottom: 3px;
+	margin: 0.5rem 0 0 0.25rem;
 }
 
 .contactDetails a {
@@ -48,3 +47,42 @@
 }
 
 .clear {clear: both;}
+
+
+@media all and (max-width: 701px) {
+	.headShot  {
+		width: 30%;
+		float: left;
+	}
+
+	.name h2 {
+		display: none;
+	}
+	
+	.headShot img {
+		width: 50%;
+	}
+	
+	.contactDetails {
+		float: left;
+	}
+		
+	.keySkills {
+	-moz-column-count:2;
+	-webkit-column-count:2;
+	column-count:2;
+	}
+	
+
+	@media all and (max-width: 601px) {
+		.headShot  {
+			display: none;
+		}
+	
+		.name, .contactDetails {
+			float: none;
+			width: 100%;
+			text-align: center;
+		}		
+	}
+}
