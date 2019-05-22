@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ApiDataCollector from '../../Utility/ApiDataCollector/ApiDataCollector';
-import githubApiUrl from '../../../config/githubApiUrl';
+import ApiDataCollector from '../../../Utility/ApiDataCollector/ApiDataCollector';
+import githubApiUrl from '../../../../config/githubApiUrl';
 
 class CvDataCollector extends Component {
   constructor() {
