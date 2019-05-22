@@ -22,7 +22,6 @@ class CvDataCollector extends Component {
   }
 
   userFriendlyErrorResponse(errorResponse) {
-    console.log(errorResponse);
     switch (errorResponse.status) {
       case 404:
         return {
@@ -32,8 +31,7 @@ class CvDataCollector extends Component {
             }
         }
       default: return { error: { message: "Something went wrong during CV generation. Please try again." } };
-    }
-    
+    }    
   }
 
   handleApiData = (response) => {

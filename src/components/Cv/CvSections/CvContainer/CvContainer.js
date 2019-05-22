@@ -1,10 +1,10 @@
 import React from 'react';
-import classes from './CvSectionsContainer.css';
+import classes from './CvContainer.css';
 import CvSectionContent from '../CvSectionTemplates/CvSectionContent/CvSectionContent';
 import CvHeadlineSection from '../CvSectionInstances/CvHeadlineSection/CvHeadlineSection';
 import CvLanguagesSection from '../CvSectionInstances/CvLanguagesSection/CvLanguagesSection';
 
-const CvSectionsContainer = (props) => {
+const CvContainer = (props) => {
   return (
     <div className={classes.CvContainer}>            
       <CvHeadlineSection name={props.data.user.name}
@@ -26,4 +26,4 @@ const CvSectionsContainer = (props) => {
 );
 };
 
-export default CvSectionsContainer;
+export default CvContainer;

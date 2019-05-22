@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './CvGenerator.css';
 import CvDataCollector from '../CvDataCollector/CvDataCollector';
-import CvSectionsContainer from '../../CvSections/CvSectionsContainer/CvSectionsContainer';
+import CvContainer from '../../CvSections/CvContainer/CvContainer';
 import CvErrorMessage from '../CvErrorMessage/CvErrorMessage';
 import CvSpinner from '../CvSpinner/CvSpinner';
 import {IoMdHome} from "react-icons/io";
@@ -28,7 +28,7 @@ class CvGenerator extends Component {
   jsxContent = () => {
     switch (true)
     {
-      case this.state.error:
+      case this.state.error !== null:
         return <CvErrorMessage errorMessage={this.state.error.message} />
       case !this.state.data:
         return (
@@ -38,7 +38,7 @@ class CvGenerator extends Component {
               login={this.props.match.params.login}/>}
           </React.Fragment>)
       default:
-        return <CvSectionsContainer data={this.state.data} />  
+        return <CvContainer data={this.state.data} />  
     }    
   }
 
