@@ -6,11 +6,11 @@
 image: node:10.15.3
 
 pipelines:
-  default:
-    - step:
-        caches:
-          - node
-        script: 
+  branches:
+    master:
+      - step:
+          script:
+          - npm install -g surge
           - npm install
-          - npm test
+          - npm run build
           - surge build github-cv.surge.sh
