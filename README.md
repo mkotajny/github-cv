@@ -1,68 +1,85 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project "Github-CV" is a React application developed by Marek Kotajny as resolution of Javascript Challenge (for React Developer).
 
-## Available Scripts
+## Running application on the web
+"Github-cv" is deployed on web server - works on [http://github-cv.surge.sh](http://github-cv.surge.sh) .
 
-In the project directory, you can run:
+## JS challenge specification
+"
+- Please implement a Javascript one-page-application that lets users build a github
+resumé similiar to http://resume.github.io/
+- Create a landing page where the user can enter his or her github account
+- Implement a “generate button” on the landing page that starts processing the
+previously entered account name and shows a result view to the user (the
+generated resumé)
+- The result view shows a summary showing which programming languages the
+github account owner has used in his/her repository. That is sufficient. Feel free to
+add more statistics or to aggregate more data if you wish to.  
+- Implement a model that connects the data to the given HTML / Javascript
+template. 
+- Make sure to use the github API, please don't start parsing web pages manually
+"
 
-### `npm start`
+## Key features of the application
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### features from user perspective
+- logo (as favicon)
+- Landing Page with simple text-field input (for github account) and with "GO" (start of cv creation) button
+- simple CV page - which generates CV (via github API) 
+- navigation between landing page and CV page
+- "home" button in the left-upper corner of CV page
+- "spinner" for tracking progress of gathering data via github api
+- error handling - modal window with eventual error messages
+- responsive layout of landing and cv pages (layout adapts for multiple display-widths)
+ 
+### features from developer perspective
+- react-router (configured in App.js) 
+- proptypes in almost all components
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## I've run `npm run eject` in the project
+The consequence is bunch of dependencies listed in the package.json file.
+I've decided to run "eject" mostly for setup [https://medium.com/@dannyhuang_75970/how-to-setup-css-modules-in-create-react-app-a03b65e14746](CSS-modules) in the application.
 
-### `npm test`
+## no Redux
+- Imho state management in this application is quite simple, so I've decided to use standard react state instead of Redux (and Redux-thunk or Redux-saga for asynchronous operations like communication with Github API). Anyway, if I should implement Redux solutions, then please let me know then I will (refactor) enhance the application :)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## way of communication with github API
 
-### `npm run build`
+This chapter describes  "... a model that connects the data to the given HTML / Javascript
+template .." (mentioned in the JS challenge). 
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### first solution
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+First I've implemented HoC solution described in this article - "How to fetch data in Higher-Order Components": https://www.robinwieruch.de/react-fetching-data/
+(revision: https://bitbucket.org/mkotajny/github-cv/commits/b35f2e2579d56454698bf7ed6a5860587e605707 )
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Than I've changed my mind :) and refactored code for other, current solution (described below)
 
-### `npm run eject`
+### second (current) solution
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The logic of gathering data from github and creation of cv is chained in Components:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### ApiDataCollector
+This component contains logic of gathering data via github API.
+Asynchronous operations are handled with axios and es6 async/await.
+The component sends request (url is taken from props.url) and passes the results into parent component.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### CvDataCollector
+(Parent for ApiDataCollector).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Based on list of github urls (different requests e.g. /users , users/repos etc.) received from props, CvDataCollector runs (for all requests) ApiDataCollector component and collects all responses (json data sets) as one, aggregated datasource.
 
-## Learn More
+#### CvGenerator
+(Parent for CvDataCollector).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This component manages different scenarios:
+a) invokes CvDataCollector with the progress-spinner
+b) or invokes CvContainer component for creation of CV content (if all data from github api has been gathered)
+c) or shows error if something went wrong with scenario b)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### CvContainer
+(Child of CvDataCollector).
 
-### Code Splitting
+This components receives (with props) data from CvGenerator and creates CV content (also by rendering other child CV-content components)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Summary
+I was doing my best by creating this project, but of course I'm aware, that they are better solutions (compare to mine) in similar React applications. I cannot wait to quickly learn and adapt to best practices used in your teams ... as your future contractor I hope :)
