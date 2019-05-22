@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ApiDataCollector from '../../../Utility/ApiDataCollector/ApiDataCollector';
-import githubApiUrl from '../../../../config/githubApiUrl';
 import PropTypes from 'prop-types';
 
 class CvDataCollector extends Component {
@@ -44,22 +43,18 @@ class CvDataCollector extends Component {
     }
   }
 
-  jsxContent = (url) => {
-    return (
-      <React.Fragment>
-        <ApiDataCollector onApiResponse={this.handleApiData}
-          dataCategory="userData" url={url}/>
-        <ApiDataCollector onApiResponse={this.handleApiData}
-          dataCategory="repositoriesData" url={url + "/repos?per_page=100"}/>
-      </React.Fragment>
-    )
+  jsxContent = () => {
+    const requests = this.props.requests.map((req) =>
+      <ApiDataCollector onApiResponse={this.handleApiData}
+          dataCategory={req.category} url={req.url}
+          key={req.category}/>);
+    return <React.Fragment>{requests}</React.Fragment>
   }
   
   render() {
-    const url = githubApiUrl + this.props.login;
     this.checkEndOfLoading();
     if (!this.state.endOfLoading) {
-      return this.jsxContent(url)
+      return this.jsxContent()
     } else {
       this.props.onResponse({
         data:{
@@ -72,7 +67,7 @@ class CvDataCollector extends Component {
 
 CvDataCollector.propTypes = {
   onResponse: PropTypes.func.isRequired,
-  login: PropTypes.string.isRequired
+  requests: PropTypes.array.isRequired
 };
 
 

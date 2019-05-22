@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classes from './CvGenerator.css';
+import githubApiUrl from '../../../../config/githubApiUrl';
 import CvDataCollector from '../CvDataCollector/CvDataCollector';
 import CvContainer from '../../CvSections/CvContainer/CvContainer';
 import CvErrorMessage from '../CvErrorMessage/CvErrorMessage';
@@ -32,11 +33,13 @@ class CvGenerator extends Component {
       case this.state.error !== null:
         return <CvErrorMessage errorMessage={this.state.error.message} />
       case !this.state.data:
+        const requestUrl = githubApiUrl + this.props.match.params.login;
         return (
           <React.Fragment>
             <CvSpinner />
-            <CvDataCollector onResponse={this.handleCvData} 
-              login={this.props.match.params.login}/>}
+            <CvDataCollector onResponse={this.handleCvData} requests={
+                [{url: requestUrl, category: "userData"},
+                 {url: requestUrl + "/repos?per_page=100", category: "repositoriesData"}]}/>
           </React.Fragment>)
       default:
         return <CvContainer data={this.state.data} />  
