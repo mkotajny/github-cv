@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import CvContainer from './components/Cv/CvCreation/CvGenerator/CvGenerator';
-import LandingPage from './components/UI/LandingPage/LandingPage';
+import CvContainer from './components/Cv/CvContainer/CvContainer';
+import LandingPage from './components/Layout/LandingPage/LandingPage';
 
 function App() {
   return (

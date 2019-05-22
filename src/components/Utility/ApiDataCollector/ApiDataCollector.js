@@ -11,7 +11,9 @@ class ApiDataCollector extends Component {
           dataCategory: this.props.dataCategory
         });
       } catch (error) {
-        this.props.OnApiResponse({error: true});
+        this.props.OnApiResponse({
+          error: error
+        });
       }
     }
 

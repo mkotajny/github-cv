@@ -1,7 +1,7 @@
 body {
   color: #222;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.85))
-  , url('../../../../assets/LandingPageBackGround.jpg');
+  , url('../../../assets/LandingPageBackGround.jpg');
   background-size: cover;
   background-position: center;
   height: 90vh;
@@ -12,7 +12,9 @@ body {
   margin: 10vh auto;
   width: 90%;
 	max-width: 800px;
-  background: #f3f3f3;  
+  background-color: #f3f3f3;  
+  border: 1px solid #333;
+  box-shadow: 2px 2px 2px #cf8a05;
 }
 
 .mainArea {

@@ -1,37 +1,47 @@
 import React, { Component } from 'react';
-import classes from './CvGenerator.css';
-import Modal from '../../../UI/Modal/Modal';
-import Spinner from '../../../UI/Spinner/Spinner';
+import classes from './CvContainer.css';
+import Modal from '../../Layout/Modal/Modal';
+import Spinner from '../../Layout/Spinner/Spinner';
 import CvDataCollector from '../CvDataCollector/CvDataCollector';
-import CvHeadlineSection from '../../CvSections/CvSectionInstances/CvHeadlineSection/CvHeadlineSection';
-import CvLanguagesSection from '../../CvSections/CvSectionInstances/CvLanguagesSection/CvLanguagesSection';
-import CvSectionContent from '../../CvSections/CvSectionTemplates/CvSectionContent/CvSectionContent';
+import CvHeadlineSection from '../CvSectionInstances/CvHeadlineSection/CvHeadlineSection';
+import CvLanguagesSection from '../CvSectionInstances/CvLanguagesSection/CvLanguagesSection';
+import CvSectionContent from '../CvSectionTemplates/CvSectionContent/CvSectionContent';
 import {IoMdHome} from "react-icons/io";
 
-class CvGenerator extends Component {
+class CvContainer extends Component {
 
   constructor() {
     super();
     this.state = {
       data: null,
-      error: false }
+      error: null }
     }
 
   handleCvData = (response) => {
     if (response.error) {
-      this.setState({error: true});
+      this.setState({error: response.error});
     } else {
       this.setState({data: response.data});
     }
   }
 
   render() {
+    if (this.state.error) {
+      return (
+          <Modal>
+            <strong>Error:</strong><br/><br/>
+            {this.state.error.message}
+            <IoMdHome className={classes.home} 
+            onClick={() => this.props.history.push('/')}/>
+          </Modal>
+          )
+    }
     if (!this.state.data) {
       return (
         <React.Fragment>
           <Modal>
               <Spinner>
-                  Generating CV ...
+                  CV creation in progress ...
               </Spinner>
           </Modal>
           <CvDataCollector OnResponse={this.handleCvData} 
@@ -56,7 +66,7 @@ class CvGenerator extends Component {
               <CvLanguagesSection repositories={this.state.data.repositories}/>
 
               <CvSectionContent title="About this resume">
-                This résumé is generated automatically using public information from the developer's GitHub account. Do not hesitate to visit <a href={"https://github.com/"+this.state.data.user.login}>{this.state.data.user.name}'s GitHub page</a> for a complete work history.
+                This résumé is generated automatically using public information from the developer's GitHub account. Do not hesitate to visit <a href={"https://github.com/"+this.state.data.user.login}>{this.state.data.user.name} ({this.state.data.user.login}) GitHub page</a> for a complete work history.
               </CvSectionContent>
             </div>
           </div>
@@ -65,4 +75,4 @@ class CvGenerator extends Component {
   }
 }
 
-export default CvGenerator;
+export default CvContainer;
