@@ -4,7 +4,7 @@ import githubApiUrl from '../../../../config/githubApiUrl';
 import CvDataCollector from '../CvDataCollector/CvDataCollector';
 import CvContainer from '../../CvSections/CvContainer/CvContainer';
 import CvErrorMessage from '../CvErrorMessage/CvErrorMessage';
-import CvSpinner from '../CvSpinner/CvSpinner';
+import Spinner from '../../../UI/Spinner/Spinner';
 import {IoMdHome} from "react-icons/io";
 import PropTypes from 'prop-types';
 
@@ -36,7 +36,7 @@ class CvGenerator extends Component {
         const requestUrl = githubApiUrl + this.props.match.params.login;
         return (
           <React.Fragment>
-            <CvSpinner />
+            <Spinner>CV creation in progress ...</Spinner>
             <CvDataCollector onResponse={this.handleCvData} requests={
                 [{url: requestUrl, category: "userData"},
                  {url: requestUrl + "/repos?per_page=100", category: "repositoriesData"}]}/>
