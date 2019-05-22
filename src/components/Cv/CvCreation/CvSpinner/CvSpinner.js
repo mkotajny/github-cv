@@ -1,6 +1,6 @@
 import React from 'react';
-import Modal from '../../../Layout/Modal/Modal';
-import Spinner from '../../../Layout/Spinner/Spinner';
+import Modal from '../../../UI/Modal/Modal';
+import Spinner from '../../../UI/Spinner/Spinner';
 
 const CvSpinner = () => {
   return (

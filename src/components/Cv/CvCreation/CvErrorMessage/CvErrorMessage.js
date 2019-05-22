@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../../../Layout/Modal/Modal';
+import Modal from '../../../UI/Modal/Modal';
 import PropTypes from 'prop-types';
 
 const CvErrorMessage = (props) => {
