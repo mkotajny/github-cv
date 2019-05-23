@@ -80,7 +80,7 @@ b) or invokes CvContainer component for creation of CV content (if all data from
 c) or shows error if something went wrong with scenario b)
 
 #### CvContainer
-(Child of CvDataCollector).
+(Child of CvGenerator).
 
 This components receives (with props) data from CvGenerator and creates CV content (also by rendering other child CV-content components)
 
