@@ -47,7 +47,7 @@ I've decided to run "eject" mostly for setup [CSS-modules](https://medium.com/@d
 
 
 ## no Redux
-- Imho state management in this application is quite simple, so I've decided to use standard react state instead of Redux (and Redux-thunk or Redux-saga for asynchronous operations like communication with Github API). Anyway, if I should implement Redux solutions, then please let me know then I will (refactor) enhance the application :)
+- Imho state management in this application is quite simple, so I've decided to use standard react state instead of Redux (and Redux-thunk or Redux-saga for asynchronous operations like communication with Github API). 
 
 
 ## way of communication with github API
@@ -82,7 +82,4 @@ c) or shows error if something went wrong with scenario b)
 #### CvContainer
 (Child of CvGenerator).
 
-This components receives (with props) data from CvGenerator and creates CV content (also by rendering other child CV-content components)
-
-## Summary
-I was doing my best by creating this project, but of course I'm aware, that they are better solutions (compare to mine) in similar React applications. I cannot wait to quickly learn and adapt to best practices used in your teams ... as your future contractor I hope :)
+This component receives (with props) data from CvGenerator and creates CV content (also by rendering other child CV-content components)
